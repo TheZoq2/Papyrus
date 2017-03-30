@@ -9,7 +9,7 @@
 
 hi clear
 syntax reset
-let g:colors_name = "PaperColor"
+let g:colors_name = "Papyrus"
 
 " Helper Functions: {{{
 " Returns an approximate grey index for the given grey level
@@ -238,197 +238,99 @@ endfun
 " }}}
 
 " Color Palette: {{{
-let s:is_dark=(&background == 'dark')
 
-if s:is_dark " DARK VARIANT
-  " These color names are corresponding to the original light version,
-  " and they don't represent the HEX code that they store in this block.
-  let s:red     = ['#5faf5f', '71'] "Include/Exception
-  let s:green   = ['#dfaf00', '178'] "Boolean/Special
-  let s:blue    = ['#00afaf', '37'] "Keyword
+" These color names are corresponding to the original light version,
+" and they don't represent the HEX code that they store in this block.
+let s:red     = ['#5faf5f', '71'] "Include/Exception
+let s:green   = ['#dfaf00', '178'] "Boolean/Special
+let s:blue    = ['#00afaf', '37'] "Keyword
 
-  let s:pink    = ['#afdf00', '148'] "Type
-  let s:olive   = ['#dfaf5f', '179'] "String
-  let s:navy    = ['#df875f', '173'] "StorageClass
+let s:pink    = ['#afdf00', '148'] "Type
+let s:olive   = ['#dfaf5f', '179'] "String
+let s:navy    = ['#df875f', '173'] "StorageClass
 
-  let s:orange  = ['#ff5faf', '205'] "Number
-  let s:purple  = ['#af87af', '139'] "Repeat/Conditional
-  let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
+let s:orange  = ['#ff5faf', '205'] "Number
+let s:purple  = ['#af87af', '139'] "Repeat/Conditional
+let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
 
-  let s:wine  = ['#af8787', '138']
+let s:wine  = ['#af8787', '138']
 
-  " Basics:
-  let s:foreground   = ['#d0d0d0', '251']
-  let s:background   = ['#262626', '234']
-  let s:selection    = ['#3a3a3a', '236']
-  let s:nontext      = ['#444444', '237']
-  let s:window       = ['#3a3a3a', '236']
-  let s:divider      = ['#5f8787', '66']
-  let s:linenumber   = ['#606060', '240']
-  let s:comment      = ['#8a8a8a', '244']
-  let s:todo         = ['#ff8700', '208']
-  let s:cursorline   = ['#303030', '235']
-  let s:cursorlinenr = ['#ffff00', '226']
-  let s:cursorcolumn = ['#303030', '235']
-  let s:error        = ['#5f0000', '52']
-  let s:matchparen   = ['#4e4e4e', '239']
+" Basics:
+let s:foreground   = ['#d0d0d0', '251']
+let s:background   = ['#262626', '234']
+let s:selection    = ['#3a3a3a', '236']
+let s:nontext      = ['#444444', '237']
+let s:window       = ['#3a3a3a', '236']
+let s:divider      = ['#5f8787', '66']
+let s:linenumber   = ['#606060', '240']
+let s:comment      = ['#8a8a8a', '244']
+let s:todo         = ['#ff8700', '208']
+let s:cursorline   = ['#303030', '235']
+let s:cursorlinenr = ['#ffff00', '226']
+let s:cursorcolumn = ['#303030', '235']
+let s:error        = ['#5f0000', '52']
+let s:matchparen   = ['#4e4e4e', '239']
 
-  " Spelling:
-  let s:spellbad   = ['#5f0000', '52']
-  let s:spellcap   = ['#5f005f', '53']
-  let s:spellrare  = ['#005f00', '22']
-  let s:spelllocal = ['#00005f', '17']
+" Spelling:
+let s:spellbad   = ['#5f0000', '52']
+let s:spellcap   = ['#5f005f', '53']
+let s:spellrare  = ['#005f00', '22']
+let s:spelllocal = ['#00005f', '17']
 
-  " Tabline:
-  let s:tabline_bg          = ['#3a3a3a', '235']
-  let s:tabline_active_fg   = ['#1c1c1c', '233']
-  let s:tabline_active_bg   = ['#00afaf', '37']
-  let s:tabline_inactive_fg = ['#c6c6c6', '250']
-  let s:tabline_inactive_bg = ['#585858', '240']
+" Tabline:
+let s:tabline_bg          = ['#3a3a3a', '235']
+let s:tabline_active_fg   = ['#1c1c1c', '233']
+let s:tabline_active_bg   = ['#00afaf', '37']
+let s:tabline_inactive_fg = ['#c6c6c6', '250']
+let s:tabline_inactive_bg = ['#585858', '240']
 
-  " BufTabLine:
-  let s:buftabline_bg          = ['#3a3a3a', '235']
-  let s:buftabline_current_fg  = ['#1c1c1c', '233']
-  let s:buftabline_current_bg  = ['#00afaf', '37']
-  let s:buftabline_active_fg   = ['#1c1c1c', '233']
-  let s:buftabline_active_bg   = ['#00afaf', '37']
-  let s:buftabline_inactive_fg = ['#c6c6c6', '250']
-  let s:buftabline_inactive_bg = ['#585858', '240']
+" BufTabLine:
+let s:buftabline_bg          = ['#3a3a3a', '235']
+let s:buftabline_current_fg  = ['#1c1c1c', '233']
+let s:buftabline_current_bg  = ['#00afaf', '37']
+let s:buftabline_active_fg   = ['#1c1c1c', '233']
+let s:buftabline_active_bg   = ['#00afaf', '37']
+let s:buftabline_inactive_fg = ['#c6c6c6', '250']
+let s:buftabline_inactive_bg = ['#585858', '240']
 
-  " Statusline:
-  let s:statusline_active_fg   = ['#1c1c1c', '233']
-  let s:statusline_active_bg   = ['#5f8787', '66']
-  let s:statusline_inactive_fg = ['#c6c6c6', '250']
-  let s:statusline_inactive_bg = ['#444444', '237']
+" Statusline:
+let s:statusline_active_fg   = ['#1c1c1c', '233']
+let s:statusline_active_bg   = ['#5f8787', '66']
+let s:statusline_inactive_fg = ['#c6c6c6', '250']
+let s:statusline_inactive_bg = ['#444444', '237']
 
-  " Search:
-  let s:search_fg = ['#000000', '16']
-  let s:search_bg = ['#00875f', '29']
+" Search:
+let s:search_fg = ['#000000', '16']
+let s:search_bg = ['#00875f', '29']
 
-  " Visual:
-  let s:visual_fg = ['#000000', '16']
-  let s:visual_bg = ['#8787af', '103']
+" Visual:
+let s:visual_fg = ['#000000', '16']
+let s:visual_bg = ['#8787af', '103']
 
-  " Folded:
-  let s:folded_fg = ['#afdf00', '148']
-  let s:folded_bg = ['#444444', '237']
+" Folded:
+let s:folded_fg = ['#afdf00', '148']
+let s:folded_bg = ['#444444', '237']
 
-  " WildMenu:
-  let s:wildmenu_fg  = s:background
-  let s:wildmenu_bg  = ['#afdf00', '148']
+" WildMenu:
+let s:wildmenu_fg  = s:background
+let s:wildmenu_bg  = ['#afdf00', '148']
 
-  " Diff:
-  let s:diffadd_fg    = ['#000000', '16']
-  let s:diffadd_bg    = ['#5faf00', '70']
+" Diff:
+let s:diffadd_fg    = ['#000000', '16']
+let s:diffadd_bg    = ['#5faf00', '70']
 
-  let s:diffdelete_fg = ['#000000', '16']
-  let s:diffdelete_bg = ['#5f0000', '52']
+let s:diffdelete_fg = ['#000000', '16']
+let s:diffdelete_bg = ['#5f0000', '52']
 
-  let s:difftext_fg   = ['#000000', '16']
-  let s:difftext_bg   = ['#ffdf5f', '221']
+let s:difftext_fg   = ['#000000', '16']
+let s:difftext_bg   = ['#ffdf5f', '221']
 
-  let s:diffchange_fg = ['#000000', '16']
-  let s:diffchange_bg = ['#dfaf00', '178']
+let s:diffchange_fg = ['#000000', '16']
+let s:diffchange_bg = ['#dfaf00', '178']
 
-  " User Override Settings:
-  if exists("g:PaperColor_Dark_Override")
-    call s:Load_Settings_Override(g:PaperColor_Dark_Override)
-  endif
-
-else " LIGHT VARIANT
-
-  let s:red     = ['#df0000', '160'] "Include/Exception
-  let s:green   = ['#008700', '28'] "Boolean/Special
-  let s:blue    = ['#4271ae', '25'] "Keyword
-
-  let s:pink    = ['#d7005f', '161'] "Type
-  let s:olive   = ['#718c00', '64'] "String
-  let s:navy    = ['#005f87', '24'] "StorageClass
-
-  let s:orange  = ['#d75f00', '166'] "Number
-  let s:purple  = ['#8959a8', '97'] "Repeat/Conditional
-  let s:aqua    = ['#3e999f', '31'] "Operator/Delimiter
-
-  let s:wine  = ['#870087', '90']
-
-  " Basics:
-  let s:foreground   = ['#444444', '238']
-  let s:background   = ['#F5F5F5', '255']
-  let s:selection    = ['#d0d0d0', '252']
-  let s:nontext      = ['#dfafff', '189']
-  let s:window       = ['#e4e4e4', '254']
-  let s:divider      = s:navy
-  let s:linenumber   = ['#bcbcbc', '249']
-  let s:comment      = ['#878787', '102']
-  let s:todo         = ['#00af5f', '35']
-  let s:cursorline   = ['#e4e4e4', '254']
-  let s:cursorlinenr = ['#af0000', '124']
-  let s:cursorcolumn = ['#e4e4e4', '254']
-  let s:error        = ['#ffafdf', '218']
-  let s:matchparen   = ['#c6c6c6', '251']
-
-  " Spelling:
-  let s:spellbad   = ['#ffafdf', '218']
-  let s:spellcap   = ['#ffffaf', '229']
-  let s:spellrare  = ['#afff87', '156']
-  let s:spelllocal = ['#dfdfff', '189']
-
-  " Tabline:
-  let s:tabline_bg          = s:navy
-  let s:tabline_active_fg   = s:foreground
-  let s:tabline_active_bg   = s:window
-  let s:tabline_inactive_fg = s:background
-  let s:tabline_inactive_bg = s:aqua
-
-  " BufTabLine:
-  let s:buftabline_bg          = s:navy
-  let s:buftabline_current_fg  = s:foreground
-  let s:buftabline_current_bg  = s:window
-  let s:buftabline_active_fg   = s:background
-  let s:buftabline_active_bg   = s:blue
-  let s:buftabline_inactive_fg = s:background
-  let s:buftabline_inactive_bg = s:aqua
-
-
-  " Statusline:
-  let s:statusline_active_fg   = s:window
-  let s:statusline_active_bg   = s:navy
-  let s:statusline_inactive_fg = s:foreground
-  let s:statusline_inactive_bg = ['#d0d0d0', '252']
-
-  " Search:
-  let s:search_fg = s:foreground
-  let s:search_bg = ['#ffff5f', '227']
-
-  " Visual:
-  let s:visual_fg = s:background
-  let s:visual_bg = s:blue
-
-  " Folded:
-  let s:folded_fg = s:navy
-  let s:folded_bg = ['#afdfff', '153']
-
-  " WildMenu:
-  let s:wildmenu_fg  = s:foreground
-  let s:wildmenu_bg  = ['#ffff00', '226']
-
-  " Diff:
-  let s:diffadd_fg    = []
-  let s:diffadd_bg    = ['#afffaf', '157']
-
-  let s:diffdelete_fg = []
-  let s:diffdelete_bg = ['#ffdfff', '225']
-
-  let s:difftext_fg   = []
-  let s:difftext_bg   = ['#ffffdf', '230']
-
-  let s:diffchange_fg = []
-  let s:diffchange_bg = ['#ffffaf', '229']
-
-  " User Override Settings:
-  if exists("g:PaperColor_Light_Override")
-    call s:Load_Settings_Override(g:PaperColor_Light_Override)
-  endif
+" User Override Settings:
+if exists("g:PaperColor_Dark_Override")
+  call s:Load_Settings_Override(g:PaperColor_Dark_Override)
 endif
 " }}}
 
@@ -438,13 +340,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Vim Highlighting
   call s:HL("Normal", s:foreground, s:background, "")
 
-  " Switching between dark & light variant through `set background`
-  " https://github.com/NLKNguyen/papercolor-theme/pull/20
-  if s:is_dark " DARK VARIANT
-    set background=dark
-  else " LIGHT VARIANT
-    set background=light
-  endif
 
   highlight LineNr term=bold cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=darkgrey guibg=NONE
   call s:HL("NonText", s:nontext, "", "")
