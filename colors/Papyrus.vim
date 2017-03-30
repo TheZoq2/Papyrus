@@ -253,6 +253,8 @@ let s:orange  = ['#ff5faf', '205'] "Number
 let s:purple  = ['#af87af', '139'] "Repeat/Conditional
 let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
 
+let s:string  = ['#ffffff', '167']
+
 let s:wine  = ['#af8787', '138']
 
 " Basics:
@@ -263,7 +265,7 @@ let s:nontext      = ['#444444', '237']
 let s:window       = ['#3a3a3a', '236']
 let s:divider      = ['#5f8787', '66']
 let s:linenumber   = ['#606060', '240']
-let s:comment      = ['#8a8a8a', '244']
+let s:comment      = ['#8a8a8a', '71']
 let s:todo         = ['#ff8700', '208']
 let s:cursorline   = ['#303030', '235']
 let s:cursorlinenr = ['#ffff00', '226']
@@ -308,8 +310,8 @@ let s:visual_fg = ['#000000', '16']
 let s:visual_bg = ['#8787af', '103']
 
 " Folded:
-let s:folded_fg = ['#afdf00', '148']
-let s:folded_bg = ['#444444', '237']
+let s:folded_fg = ['#afdf00', '144']
+let s:folded_bg = ['#444444', '234']
 
 " WildMenu:
 let s:wildmenu_fg  = s:background
@@ -385,8 +387,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("Comment", s:comment, "", "")
 
   call s:HL("Constant", s:orange, "", "")
-  call s:HL("String", s:olive, "", "")
-  call s:HL("Character", s:olive, "", "")
+  call s:HL("String", s:string, "", "")
+  call s:HL("Character", s:string, "", "")
   call s:HL("Number", s:orange, "", "")
   call s:HL("Boolean", s:green, "", "bold")
   call s:HL("Float", s:orange, "", "")
@@ -860,7 +862,7 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("rubyArrayDelimiter", s:aqua, "", "")
   call s:HL("rubyStringDelimiter", s:olive, "", "")
   call s:HL("rubyInterpolationDelimiter", s:orange, "", "")
-  call s:HL("rubyConditional", s:purple, "", "bold")
+  call s:HL("rubyConditional", s:pink, "", "bold")
   call s:HL("rubyRepeat", s:purple, "", "bold")
   call s:HL("rubyControl", s:purple, "", "bold")
   call s:HL("rubyException", s:purple, "", "bold")
@@ -1126,72 +1128,6 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("StartifySlash", s:navy, "", "")
   call s:HL("StartifyBracket", s:aqua, "", "")
   call s:HL("StartifySpecial", s:aqua, "", "")
-
-  "=====================================================================
-  " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
-  "=====================================================================
-
-
-  " " CoffeeScript Highlighting
-  " call s:HL("coffeeRepeat", s:purple, "", "")
-  " call s:HL("coffeeConditional", s:purple, "", "")
-  " call s:HL("coffeeKeyword", s:purple, "", "")
-  " call s:HL("coffeeObject", s:yellow, "", "")
-
-
-  " " ShowMarks Highlighting
-  " call s:HL("ShowMarksHLl", s:orange, s:background, "none")
-  " call s:HL("ShowMarksHLo", s:purple, s:background, "none")
-  " call s:HL("ShowMarksHLu", s:yellow, s:background, "none")
-  " call s:HL("ShowMarksHLm", s:aqua, s:background, "none")
-
-
-
-
-
-  " " Scala "highlighting
-  " call s:HL("scalaKeyword", s:purple, "", "")
-  " call s:HL("scalaKeywordModifier", s:purple, "", "")
-  " call s:HL("scalaOperator", s:blue, "", "")
-  " call s:HL("scalaPackage", s:pink, "", "")
-  " call s:HL("scalaFqn", s:foreground, "", "")
-  " call s:HL("scalaFqnSet", s:foreground, "", "")
-  " call s:HL("scalaImport", s:purple, "", "")
-  " call s:HL("scalaBoolean", s:orange, "", "")
-  " call s:HL("scalaDef", s:purple, "", "")
-  " call s:HL("scalaVal", s:purple, "", "")
-  " call s:HL("scalaVar", s:aqua, "", "")
-  " call s:HL("scalaClass", s:purple, "", "")
-  " call s:HL("scalaObject", s:purple, "", "")
-  " call s:HL("scalaTrait", s:purple, "", "")
-  " call s:HL("scalaDefName", s:blue, "", "")
-  " call s:HL("scalaValName", s:foreground, "", "")
-  " call s:HL("scalaVarName", s:foreground, "", "")
-  " call s:HL("scalaClassName", s:foreground, "", "")
-  " call s:HL("scalaType", s:yellow, "", "")
-  " call s:HL("scalaTypeSpecializer", s:yellow, "", "")
-  " call s:HL("scalaAnnotation", s:orange, "", "")
-  " call s:HL("scalaNumber", s:orange, "", "")
-  " call s:HL("scalaDefSpecializer", s:yellow, "", "")
-  " call s:HL("scalaClassSpecializer", s:yellow, "", "")
-  " call s:HL("scalaBackTick", s:olive, "", "")
-  " call s:HL("scalaRoot", s:foreground, "", "")
-  " call s:HL("scalaMethodCall", s:blue, "", "")
-  " call s:HL("scalaCaseType", s:yellow, "", "")
-  " call s:HL("scalaLineComment", s:comment, "", "")
-  " call s:HL("scalaComment", s:comment, "", "")
-  " call s:HL("scalaDocComment", s:comment, "", "")
-  " call s:HL("scalaDocTags", s:comment, "", "")
-  " call s:HL("scalaEmptyString", s:olive, "", "")
-  " call s:HL("scalaMultiLineString", s:olive, "", "")
-  " call s:HL("scalaUnicode", s:orange, "", "")
-  " call s:HL("scalaString", s:olive, "", "")
-  " call s:HL("scalaStringEscape", s:olive, "", "")
-  " call s:HL("scalaSymbol", s:orange, "", "")
-  " call s:HL("scalaChar", s:orange, "", "")
-  " call s:HL("scalaXml", s:olive, "", "")
-  " call s:HL("scalaConstructorSpecializer", s:yellow, "", "")
-  " call s:HL("scalaBackTick", s:blue, "", "")
 
   " Git
   call s:HL("diffAdded", s:olive, "", "")
