@@ -13,7 +13,7 @@ let g:colors_name = "Papyrus"
 
 " Helper Functions: {{{
 " Returns an approximate grey index for the given grey level
-fun s:grey_number(x)
+fun! s:grey_number(x)
   if &t_Co == 88
     if a:x < 23
       return 0
@@ -52,7 +52,7 @@ fun s:grey_number(x)
 endfun
 
 " Returns the actual grey level represented by the grey index
-fun s:grey_level(n)
+fun! s:grey_level(n)
   if &t_Co == 88
     if a:n == 0
       return 0
@@ -85,7 +85,7 @@ fun s:grey_level(n)
 endfun
 
 " Returns the palette index for the given grey index
-fun s:grey_colour(n)
+fun! s:grey_colour(n)
   if &t_Co == 88
     if a:n == 0
       return 16
@@ -106,7 +106,7 @@ fun s:grey_colour(n)
 endfun
 
 " Returns an approximate colour index for the given colour level
-fun s:rgb_number(x)
+fun! s:rgb_number(x)
   if &t_Co == 88
     if a:x < 69
       return 0
@@ -133,7 +133,7 @@ fun s:rgb_number(x)
 endfun
 
 " Returns the actual colour level for the given colour index
-fun s:rgb_level(n)
+fun! s:rgb_level(n)
   if &t_Co == 88
     if a:n == 0
       return 0
@@ -154,7 +154,7 @@ fun s:rgb_level(n)
 endfun
 
 " Returns the palette index for the given R/G/B colour indices
-fun s:rgb_colour(x, y, z)
+fun! s:rgb_colour(x, y, z)
   if &t_Co == 88
     return 16 + (a:x * 16) + (a:y * 4) + a:z
   else
@@ -163,7 +163,7 @@ fun s:rgb_colour(x, y, z)
 endfun
 
 " Returns the palette index to approximate the given R/G/B colour levels
-fun s:colour(r, g, b)
+fun! s:colour(r, g, b)
   " Get the closest grey
   let l:gx = s:grey_number(a:r)
   let l:gy = s:grey_number(a:g)
@@ -198,7 +198,7 @@ fun s:colour(r, g, b)
 endfun
 
 " Returns the palette index to approximate the '#rrggbb' hex string
-fun s:rgb(rgb)
+fun! s:rgb(rgb)
   let l:r = ("0x" . strpart(a:rgb, 1, 2)) + 0
   let l:g = ("0x" . strpart(a:rgb, 3, 2)) + 0
   let l:b = ("0x" . strpart(a:rgb, 5, 2)) + 0
@@ -207,7 +207,7 @@ fun s:rgb(rgb)
 endfun
 
 " Sets the highlighting for the given group
-fun s:HL(group, fg, bg, attr)
+fun! s:HL(group, fg, bg, attr)
   if !empty(a:fg)
     " echo "['" . a:fg . "', " . s:rgb(a:fg) . "]"
     exec "hi " . a:group . " guifg=" . a:fg[0] . " ctermfg=" . a:fg[1]
@@ -221,7 +221,7 @@ fun s:HL(group, fg, bg, attr)
   endif
 endfun
 
-fun s:Load_Settings_Override(custom)
+fun! s:Load_Settings_Override(custom)
   if has_key(a:custom, 'cursorline')
     let s:cursorline = [a:custom['cursorline'], '' . s:rgb(a:custom['cursorline'])]
   endif
@@ -241,33 +241,34 @@ endfun
 
 " These color names are corresponding to the original light version,
 " and they don't represent the HEX code that they store in this block.
-let s:red     = ['#5faf5f', '71'] "Include/Exception
+let s:red     = ['#ae3d3d', '71'] "Include/Exception
 let s:yellow   = ['#dfaf00', '178'] "Boolean/Special
 let s:blue    = ['#00afaf', '37'] "Keyword
 
-let s:green    = ['#afdf00', '112'] "Type
+let s:green    = ['#acd02d', '112'] "Type
 let s:olive   = ['#dfaf5f', '179'] "String
 let s:navy    = ['#df875f', '173'] "StorageClass
 
 let s:orange  = ['#ff5faf', '205'] "Number
 let s:purple  = ['#af87af', '139'] "Repeat/Conditional
 let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
-let s:subtleYellow = ['#ffffff', '14']
+let s:subtleBlue = ['#4ea3e5', '14']
+let s:subtlePurple = ['#dc88d5', '135']
 
-let s:string  = ['#ffffff', '167']
-let s:operator = ['#ffffff', '178']
+let s:string  = ['#99c45b', '167']
+let s:operator = ['#e1a71a', '178']
 
 let s:wine  = ['#af8787', '138']
 
 " Basics:
 let s:foreground   = ['#d0d0d0', '251']
-let s:background   = ['#262626', '234']
+let s:background   = ['#1c1c1c', '234']
 let s:selection    = ['#3a3a3a', '236']
 let s:nontext      = ['#444444', '237']
 let s:window       = ['#3a3a3a', '236']
 let s:divider      = ['#5f8787', '66']
 let s:linenumber   = ['#606060', '240']
-let s:comment      = ['#8a8a8a', '71']
+let s:comment      = ['#8289a4', '71']
 let s:todo         = ['#ff8700', '208']
 let s:cursorline   = ['#303030', '235']
 let s:cursorlinenr = ['#ffff00', '226']
@@ -312,8 +313,8 @@ let s:visual_fg = ['#000000', '16']
 let s:visual_bg = ['#8787af', '103']
 
 " Folded:
-let s:folded_fg = ['#afdf00', '144']
-let s:folded_bg = ['#444444', '234']
+let s:folded_fg = s:comment
+let s:folded_bg = ['#1c1c1c', '234']
 
 " WildMenu:
 let s:wildmenu_fg  = s:background
@@ -1139,7 +1140,8 @@ call s:HL("cssClassName", s:green, "", "")
 
   " Elm
   call s:HL("elmOperator", s:operator, "", "")
-  call s:HL("elmType", s:subtleYellow, "", "")
+  call s:HL("elmType", s:subtlePurple, "", "")
+  call s:HL("elmImport", s:red, "", "")
 
 endif
 " }}}
