@@ -1116,7 +1116,7 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("DiffText",   s:difftext_fg,   s:difftext_bg,   "none")
 
   " Plugin: Spell Checking
-  call s:HL("SpellBad",   s:foreground, s:spellbad,   "")
+  call s:HL("SpellBad",   "", "",   "")
   call s:HL("SpellCap",   s:foreground, s:spellcap,   "")
   call s:HL("SpellRare",  s:foreground, s:spellrare,  "")
   call s:HL("SpellLocal", s:foreground, s:spelllocal, "")
