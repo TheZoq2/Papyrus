@@ -262,7 +262,6 @@ let s:wine  = ['#af8787', '138']
 
 " Basics:
 let s:foreground   = ['#d0d0d0', '251']
-let s:background   = ['#1c1c1c', '234']
 let s:selection    = ['#3a3a3a', '236']
 let s:nontext      = ['#444444', '237']
 let s:window       = ['#3a3a3a', '236']
@@ -270,11 +269,19 @@ let s:divider      = ['#5f8787', '66']
 let s:linenumber   = ['#606060', '240']
 let s:comment      = ['#8289a4', '71']
 let s:todo         = ['#ff8700', '208']
-let s:cursorline   = ['#303030', '235']
-let s:cursorlinenr = ['#ffff00', '226']
 let s:cursorcolumn = ['#303030', '235']
 let s:error        = ['#5f0000', '52']
 let s:matchparen   = ['#4e4e4e', '239']
+
+if exists("g:papyrus_variant") && g:papyrus_variant == "blue"
+    let s:background   = ['#0B151D', '234']
+    let s:cursorline   = ['#162939', '235']
+    let s:cursorlinenr = ['#ffff00', '226']
+else
+    let s:background   = ['#1c1c1c', '234']
+    let s:cursorline   = ['#303030', '235']
+    let s:cursorlinenr = ['#ffff00', '226']
+endif
 
 " Spelling:
 let s:spellbad   = ['#5f0000', '52']
@@ -871,6 +878,10 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("rubyException", s:purple, "", "bold")
   call s:HL("rubyExceptional", s:purple, "", "bold")
   call s:HL("rubyBoolean", s:yellow, "", "bold")
+
+  " Rust Highlighting
+  call s:HL("rustLabel", s:aqua, "", "")
+  call s:HL("rustLifetime", s:subtlePurple, "", "")
 
   " Fortran Highlighting
   call s:HL("fortranUnitHeader", s:foreground, "", "bold")
