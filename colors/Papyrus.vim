@@ -267,7 +267,7 @@ let s:nontext      = ['#444444', '237']
 let s:window       = ['#3a3a3a', '236']
 let s:divider      = ['#5f8787', '66']
 let s:linenumber   = ['#606060', '240']
-let s:comment      = ['#8289a4', '71']
+let s:comment      = ['#529961', '71']
 let s:todo         = ['#ff8700', '208']
 let s:cursorcolumn = ['#303030', '235']
 let s:error        = ['#5f0000', '52']
@@ -320,7 +320,7 @@ let s:visual_fg = ['#000000', '16']
 let s:visual_bg = ['#8787af', '103']
 
 " Folded:
-let s:folded_fg = s:comment
+let s:folded_fg = ['#8289a4', '171']
 let s:folded_bg = ['#1c1c1c', '234']
 
 " WildMenu:
