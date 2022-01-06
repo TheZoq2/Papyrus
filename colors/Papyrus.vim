@@ -1154,6 +1154,18 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("elmType", s:subtlePurple, "", "")
   call s:HL("elmImport", s:red, "", "")
 
+  " Treesitter
+  call s:HL("TSNamespace", s:red, "", "")
+  call s:HL("TSType", s:foreground, "", "")
+  call s:HL("TSFunction", s:foreground, "", "bold")
+  call s:HL("TSConstant", s:foreground, "", "bold")
+  call s:HL("TSConstBuiltin", s:orange, "", "")
+  call s:HL("TSInclude", s:blue, "", "")
+  call s:HL("TSVariableBuiltin", s:orange, "", "")
+
+  call s:HL("TSPunctBracket", s:foreground, "", "")
+  call s:HL("TSPunctDelimiter", s:foreground, "", "")
+
 endif
 " }}}
 
