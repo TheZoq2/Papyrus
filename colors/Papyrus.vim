@@ -1162,6 +1162,7 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("TSConstBuiltin", s:pink, "", "")
   call s:HL("TSInclude", s:blue, "", "")
   call s:HL("TSVariableBuiltin", s:pink, "", "")
+  call s:HL("TSLabel", s:subtleBlue, "", "italic")
 
   call s:HL("TSPunctBracket", s:foreground, "", "")
   call s:HL("TSPunctDelimiter", s:foreground, "", "")
