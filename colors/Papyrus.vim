@@ -1171,6 +1171,10 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("TSRustMutSpecifier", s:subtlePurple, "", "")
   call s:HL("TSRustTypeInPath", s:red, "", "bold")
 
+  " Spade
+  call s:HL("spadeLabel", s:aqua, "", "")
+  call s:HL("spadeIdent", s:foreground, "", "")
+
 endif
 " }}}
 
