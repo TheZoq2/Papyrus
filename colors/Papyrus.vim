@@ -278,9 +278,9 @@ if exists("g:papyrus_variant") && g:papyrus_variant == "blue"
     let s:cursorline   = ['#162939', '235']
     let s:cursorlinenr = ['#ffff00', '226']
 else
-    let s:background   = ['#1c1c1c', '234']
-    let s:cursorline   = ['#303030', '235']
-    let s:cursorlinenr = ['#ffff00', '226']
+    let s:background   = ['#000000', '234']
+    let s:cursorline   = ['#000000', '235']
+    let s:cursorlinenr = ['#000000', '226']
 endif
 
 " Spelling:
@@ -339,6 +339,10 @@ let s:difftext_bg   = ['#ffdf5f', '221']
 
 let s:diffchange_fg = ['#000000', '16']
 let s:diffchange_bg = ['#dfaf00', '178']
+
+let s:conflictmarker_ours = ['#003707', '0']
+let s:conflictmarker_theirs = ['#00372e', '0']
+let s:conflictmarker_common_ancestors = ['#2a0037', '0']
 
 " User Override Settings:
 if exists("g:PaperColor_Dark_Override")
@@ -434,7 +438,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   "call s:HL("Ignore", "666666", "", "")
 
-  call s:HL("Error", s:foreground, s:error, "")
+  call s:HL("Error", s:foreground, s:error, "undercurl")
   call s:HL("Todo", s:todo, s:background, "bold")
 
   call s:HL("Title", s:comment, "", "")
@@ -1127,8 +1131,8 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("DiffText",   s:difftext_fg,   s:difftext_bg,   "none")
 
   " Plugin: Spell Checking
-  call s:HL("SpellBad",   "", "",   "")
-  call s:HL("SpellCap",   s:foreground, s:spellcap,   "")
+  call s:HL("SpellBad",   "", "",   "undercurl")
+  call s:HL("SpellCap",   s:foreground, s:spellcap,   "undercurl")
   call s:HL("SpellRare",  s:foreground, s:spellrare,  "")
   call s:HL("SpellLocal", s:foreground, s:spelllocal, "")
 
@@ -1175,7 +1179,63 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("spadeLabel", s:aqua, "", "")
   call s:HL("spadeIdent", s:foreground, "", "")
 
+  call s:HL("ConflictMarkerOurs", "", s:conflictmarker_ours, "")
+  call s:HL("ConflictMarkerTheirs", "", s:conflictmarker_theirs, "")
+  call s:HL("ConflictMarkerCommonAncestorsHunk", "", s:conflictmarker_common_ancestors, "")
+
+
+  let s:error_color = "red"
+  let s:error_color = "yellow"
+
+
+  hi! LspDiagnosticsDefaultError           guifg=#ee1e1e
+  hi! LspDiagnosticsSignError              guifg=#ee1e1e
+  hi! LspDiagnosticsFloatingError          guifg=#ee1e1e
+  hi! LspDiagnosticsVirtualTextError       guifg=#ee1e1e
+  hi! LspDiagnosticsUnderlineError                       guisp=#ee1e1e cterm=undercurl gui=undercurl
+
+  hi! LspDiagnosticsDefaultWarning         guifg=#eeac16
+  hi! LspDiagnosticsSignWarning            guifg=#eeac16
+  hi! LspDiagnosticsFloatingWarning        guifg=#eeac16
+  hi! LspDiagnosticsVirtualTextWarning     guifg=#eeac16
+  hi! LspDiagnosticsUnderlineWarning                     guisp=#eeac16 cterm=undercurl gui=undercurl
+
+  hi! LspDiagnosticsDefaultInformation     guifg=#9c16ee
+  hi! LspDiagnosticsSignInformation        guifg=#9c16ee
+  hi! LspDiagnosticsFloatingInformation    guifg=#9c16ee
+  hi! LspDiagnosticsVirtualTextInformation guifg=#9c16ee
+  hi! LspDiagnosticsUnderlineInformation                 guisp=#9c16ee cterm=undercurl gui=undercurl
+                                                                                                     
+  hi! LspDiagnosticsDefaultHint            guifg=#1681ee
+  hi! LspDiagnosticsSignHint               guifg=#1681ee
+  hi! LspDiagnosticsFloatingHint           guifg=#1681ee
+  hi! LspDiagnosticsVirtualTextHint        guifg=#1681ee
+  hi! LspDiagnosticsUnderlineHint                        guisp=#1681ee cterm=undercurl gui=undercurl
+
+
+  hi! link DiagnosticError LspDiagnosticsDefaultError
+  hi! link DiagnosticWarn LspDiagnosticsDefaultWarning
+  hi! link DiagnosticInfo LspDiagnosticsDefaultInformation
+  hi! link DiagnosticHint LspDiagnosticsDefaultHint
+  hi! link DiagnosticVirtualTextWarn LspDiagnosticsVirtualTextWarning
+  hi! link DiagnosticUnderlineWarn LspDiagnosticsUnderlineWarning
+  hi! link DiagnosticFloatingWarn LspDiagnosticsFloatingWarning
+  hi! link DiagnosticSignWarn LspDiagnosticsSignWarning
+  hi! link DiagnosticVirtualTextError LspDiagnosticsVirtualTextError
+  hi! link DiagnosticUnderlineError LspDiagnosticsUnderlineError
+  hi! link DiagnosticFloatingError LspDiagnosticsFloatingError
+  hi! link DiagnosticSignError LspDiagnosticsSignError
+  hi! link DiagnosticVirtualTextInfo LspDiagnosticsVirtualTextInformation
+  hi! link DiagnosticUnderlineInfo LspDiagnosticsUnderlineInformation
+  hi! link DiagnosticFloatingInfo LspDiagnosticsFloatingInformation
+  hi! link DiagnosticSignInfo LspDiagnosticsSignInformation
+  hi! link DiagnosticVirtualTextHint LspDiagnosticsVirtualTextHint
+  hi! link DiagnosticUnderlineHint LspDiagnosticsUnderlineHint
+  hi! link DiagnosticFloatingHint LspDiagnosticsFloatingHint
+  hi! link DiagnosticSignHint LspDiagnosticsSignHint
+
 endif
+
 " }}}
 
 " Delete Helper Functions: {{{
