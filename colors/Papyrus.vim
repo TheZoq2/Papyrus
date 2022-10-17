@@ -1254,6 +1254,8 @@ call s:HL("cssClassName", s:green, "", "")
   highlight! link CmpItemKindProperty CmpItemKindKeyword
   highlight! link CmpItemKindUnit CmpItemKindKeyword
 
+  hi! CmpItemKindText guifg=#C3E88D guibg=#9FBD73
+
 endif
 
 " }}}
