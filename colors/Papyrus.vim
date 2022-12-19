@@ -244,6 +244,7 @@ endfun
 let s:red     = ['#ae3d3d', '71'] "Include/Exception
 let s:yellow   = ['#dfaf00', '178'] "Boolean/Special
 let s:blue    = ['#00afaf', '37'] "Keyword
+let s:darkPurple = ["#b434db", '0']
 
 let s:green    = ['#acd02d', '112'] "Type
 let s:string   = ['#dfaf5f', '179'] "String
@@ -418,7 +419,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("Keyword", s:blue, "", "")
   call s:HL("Exception", s:red, "", "")
 
-  call s:HL("PreProc", s:blue, "", "")
+  call s:HL("PreProc", s:darkPurple, "", "")
   call s:HL("Include", s:red, "", "")
   call s:HL("Define", s:blue, "", "")
   call s:HL("Macro", s:blue, "", "")
