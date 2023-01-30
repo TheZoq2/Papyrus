@@ -1194,29 +1194,31 @@ call s:HL("cssClassName", s:green, "", "")
   let s:error_color = "yellow"
 
 
-  hi! LspDiagnosticsDefaultError           guifg=#ee1e1e
-  hi! LspDiagnosticsSignError              guifg=#ee1e1e
-  hi! LspDiagnosticsFloatingError          guifg=#ee1e1e
-  hi! LspDiagnosticsVirtualTextError       guifg=#ee1e1e
+  hi! LspDiagnosticsDefaultError           guifg=#960000 guibg=#000000
+  hi! LspDiagnosticsSignError              guifg=#960000 guibg=#000000
+  hi! LspDiagnosticsFloatingError          guifg=#960000 guibg=#000000
+  hi! LspDiagnosticsVirtualTextError       guifg=#960000 guibg=#000000
   hi! LspDiagnosticsUnderlineError                       guisp=#ee1e1e cterm=undercurl gui=undercurl
 
-  hi! LspDiagnosticsDefaultWarning         guifg=#eeac16
-  hi! LspDiagnosticsSignWarning            guifg=#eeac16
-  hi! LspDiagnosticsFloatingWarning        guifg=#eeac16
-  hi! LspDiagnosticsVirtualTextWarning     guifg=#eeac16
+  hi! LspDiagnosticsDefaultWarning         guifg=#eeac16 guibg=#000000
+  hi! LspDiagnosticsSignWarning            guifg=#eeac16 guibg=#000000
+  hi! LspDiagnosticsFloatingWarning        guifg=#eeac16 guibg=#000000
+  hi! LspDiagnosticsVirtualTextWarning     guifg=#eeac16 guibg=#000000
   hi! LspDiagnosticsUnderlineWarning                     guisp=#eeac16 cterm=undercurl gui=undercurl
 
-  hi! LspDiagnosticsDefaultInformation     guifg=#9c16ee
-  hi! LspDiagnosticsSignInformation        guifg=#9c16ee
-  hi! LspDiagnosticsFloatingInformation    guifg=#9c16ee
-  hi! LspDiagnosticsVirtualTextInformation guifg=#9c16ee
+  hi! LspDiagnosticsDefaultInformation     guifg=#9c16ee guibg=#000000
+  hi! LspDiagnosticsSignInformation        guifg=#9c16ee guibg=#000000
+  hi! LspDiagnosticsFloatingInformation    guifg=#9c16ee guibg=#000000
+  hi! LspDiagnosticsVirtualTextInformation guifg=#9c16ee guibg=#000000
   hi! LspDiagnosticsUnderlineInformation                 guisp=#9c16ee cterm=undercurl gui=undercurl
                                                                                                      
-  hi! LspDiagnosticsDefaultHint            guifg=#1681ee
-  hi! LspDiagnosticsSignHint               guifg=#1681ee
-  hi! LspDiagnosticsFloatingHint           guifg=#1681ee
-  hi! LspDiagnosticsVirtualTextHint        guifg=#1681ee
+  hi! LspDiagnosticsDefaultHint            guifg=#1681ee guibg=#000000
+  hi! LspDiagnosticsSignHint               guifg=#1681ee guibg=#000000
+  hi! LspDiagnosticsFloatingHint           guifg=#1681ee guibg=#000000
+  hi! LspDiagnosticsVirtualTextHint        guifg=#1681ee guibg=#000000
   hi! LspDiagnosticsUnderlineHint                        guisp=#1681ee cterm=undercurl gui=undercurl
+
+  hi! LspSignatureActiveParameter guifg=#ce1ebf
 
 
   hi! link DiagnosticError LspDiagnosticsDefaultError
@@ -1257,7 +1259,48 @@ call s:HL("cssClassName", s:green, "", "")
   highlight! link CmpItemKindProperty CmpItemKindKeyword
   highlight! link CmpItemKindUnit CmpItemKindKeyword
 
-  hi! CmpItemKindText guifg=#C3E88D guibg=#9FBD73
+  hi! PmenuSel guibg=#282C34
+  hi! Pmenu guifg=#C5CDD9 guibg=#22252A
+
+  highlight! CmpItemAbbrDeprecated guifg=#7E8294 guibg=NONE term=strikethrough
+  highlight! CmpItemAbbrMatch guifg=#82AAFF guibg=NONE term=bold
+  highlight! CmpItemAbbrMatchFuzzy guifg=#82AAFF guibg=NONE term=bold
+  highlight! CmpItemMenu guifg=#C792EA guibg=NONE term=italic
+
+  highlight! CmpItemKindField guifg=#B5585F
+  highlight! CmpItemKindProperty guifg=#B5585F
+  highlight! CmpItemKindEvent guifg=#B5585F
+
+  highlight! CmpItemKindText guifg=#9FBD73
+  highlight! CmpItemKindEnum guifg=#9FBD73
+  highlight! CmpItemKindKeyword guifg=#9FBD73
+
+  highlight! CmpItemKindConstant guifg=#D4BB6C
+  highlight! CmpItemKindConstructor guifg=#D4BB6C
+  highlight! CmpItemKindReference guifg=#D4BB6C
+
+  highlight! CmpItemKindFunction guifg=#A377BF
+  highlight! CmpItemKindStruct guifg=#A377BF
+  highlight! CmpItemKindClass guifg=#A377BF
+  highlight! CmpItemKindModule guifg=#A377BF
+  highlight! CmpItemKindOperator guifg=#A377BF
+
+  highlight! CmpItemKindVariable guifg=#7E8294
+  highlight! CmpItemKindFile guifg=#7E8294
+
+  highlight! CmpItemKindUnit guifg=#D4A959
+  highlight! CmpItemKindSnippet guifg=#D4A959
+  highlight! CmpItemKindFolder guifg=#D4A959
+
+  highlight! CmpItemKindMethod guifg=#6C8ED4
+  highlight! CmpItemKindValue guifg=#6C8ED4
+  highlight! CmpItemKindEnumMember guifg=#6C8ED4
+
+  highlight! CmpItemKindInterface guifg=#58B5A8
+  highlight! CmpItemKindColor guifg=#58B5A8
+  highlight! CmpItemKindTypeParameter guifg=#58B5A8
+
+  hi! CmpItemKindText guifg=#9FBD73
 
 endif
 
