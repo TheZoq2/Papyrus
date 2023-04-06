@@ -1271,9 +1271,9 @@ call s:HL("cssClassName", s:green, "", "")
   highlight! CmpItemKindProperty guifg=#B5585F
   highlight! CmpItemKindEvent guifg=#B5585F
 
-  highlight! CmpItemKindText guifg=#9FBD73
-  highlight! CmpItemKindEnum guifg=#9FBD73
-  highlight! CmpItemKindKeyword guifg=#9FBD73
+  highlight! CmpItemKindText guifg=#BD739F
+  highlight! CmpItemKindEnum guifg=#BD739F
+  highlight! CmpItemKindKeyword guifg=#BD739F
 
   highlight! CmpItemKindConstant guifg=#D4BB6C
   highlight! CmpItemKindConstructor guifg=#D4BB6C
@@ -1300,7 +1300,15 @@ call s:HL("cssClassName", s:green, "", "")
   highlight! CmpItemKindColor guifg=#58B5A8
   highlight! CmpItemKindTypeParameter guifg=#58B5A8
 
+  hi! DapBreakpoint guifg=#d43333
+  hi! DapBreakpointCondition guifg=#3733d4
+  hi! DapBreakpointRejected guifg=#d45333
+  hi! DapLogPoint guifg=#33d457
+  hi! DapStopped guifg=#33c2d4
+
   hi! CmpItemKindText guifg=#9FBD73
+
+  hi! TreesitterContext guibg=#540850
 
 endif
 
