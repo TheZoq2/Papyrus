@@ -372,7 +372,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("BufTabLineHidden", s:buftabline_inactive_fg, s:buftabline_inactive_bg, "None")
   call s:HL("BufTabLineFill", "", s:buftabline_bg, "None")
 
-  call s:HL("StatusLine", s:statusline_active_fg, s:statusline_active_bg, "bold")
+  call s:HL("StatusLine", s:foreground, s:background, "bold")
   call s:HL("StatusLineNC", s:statusline_inactive_fg, s:statusline_inactive_bg, "None")
   call s:HL("VertSplit", s:divider, s:background, "none")
   " call s:HL("VertSplit", s:red, s:background, "none")
@@ -1172,6 +1172,7 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("@type.builtin", s:green, "", "")
   call s:HL("@variable", s:foreground, "", "")
   call s:HL("@variable.builtin", s:pink, "", "")
+  call s:HL("@comment.documentation", s:comment, "", "bold")
 
   call s:HL("@punctuation.delimiter", s:foreground, "", "")
   call s:HL("@punctuation.bracket", s:foreground, "", "")
