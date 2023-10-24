@@ -243,6 +243,7 @@ endfun
 " and they don't represent the HEX code that they store in this block.
 let s:red     = ['#ae3d3d', '71'] "Include/Exception
 let s:yellow   = ['#dfaf00', '178'] "Boolean/Special
+let s:dim_yellow   = ['#a95f06', '178'] "Boolean/Special
 let s:blue    = ['#00afaf', '37'] "Keyword
 let s:darkPurple = ["#b434db", '0']
 
@@ -1174,12 +1175,16 @@ call s:HL("cssClassName", s:green, "", "")
   call s:HL("@variable.builtin", s:pink, "", "")
   call s:HL("@comment.documentation", s:comment, "", "bold")
 
+  call s:HL("@bool.false", s:dim_yellow, "", "")
+  call s:HL("@bool.true", s:yellow, "", "")
+
   call s:HL("@punctuation.delimiter", s:foreground, "", "")
   call s:HL("@punctuation.bracket", s:foreground, "", "")
   call s:HL("@punctuation.bracket", s:foreground, "", "")
 
   call s:HL("@TSRustGeneric", s:operator, "", "")
   call s:HL("@TSRustMutSpecifier", s:subtlePurple, "", "")
+  call s:HL("@type.qualifier", s:subtlePurple, "", "")
   call s:HL("@TSRustTypeInPath", s:red, "", "bold")
 
   " Spade
